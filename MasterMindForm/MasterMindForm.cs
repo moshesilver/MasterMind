@@ -53,23 +53,34 @@ namespace MasterMindForm {
                     Text = Convert.ToString(game.containsWithoutPosition)
                 }
             );
-            // run ResetChecking method
-            game.ResetChecking();
+            Refresh();
             // check for win
             if (game.CheckForWin()) {
                 // ADD WINNING CODE HERE
-                new Panel() {
-                    BackColor = Color.FromArgb(10, 255, 255, 255),
-                    BorderStyle = BorderStyle.Fixed3D,
-                    //Location = new Point(609, 135),
-                    Margin = new Padding(3, 2, 3, 2),
+                TransparentPanel blockingPanel = new() {
                     Name = "blockingPanel",
-                    Size = new Size(ActiveForm.Width, ActiveForm.Height)
+                    Size = new Size(ActiveForm.Width, ActiveForm.Height),
                 };
-            }
-        }
-        private void solverButton_Click(object sender, EventArgs e) {
+                Controls.Add(blockingPanel);
+                blockingPanel.BringToFront();
 
+                TextBox winMessage = new() {
+                    Name = "winMessage",
+                    Size = new Size(150, 50),
+                    Text = "YOU WIN!",
+                    Font = new Font("Segoe UI", 20),
+                    TextAlign = HorizontalAlignment.Center,
+                    Enabled = false
+                };
+                winMessage.Location = new Point((ActiveForm.Width / 2) - (winMessage.Width / 2), (ActiveForm.Height / 2) - (winMessage.Height / 2));
+                Controls.Add(winMessage);
+                winMessage.BringToFront();
+            }
+            // run ResetChecking method
+            game.ResetChecking(); // moved here
+        }
+        private void SolverButton_Click(object sender, EventArgs e) {
+            // game.board.
         }
     }
 }

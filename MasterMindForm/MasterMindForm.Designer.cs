@@ -464,7 +464,7 @@
             solverButton.TabIndex = 31;
             solverButton.Text = "Solver";
             solverButton.UseVisualStyleBackColor = true;
-            solverButton.Click += solverButton_Click;
+            solverButton.Click += SolverButton_Click;
             // 
             // textBox3
             // 

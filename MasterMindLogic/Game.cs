@@ -20,7 +20,7 @@ namespace MasterMindLogic {
         };
         public int containsAndPosition = 0;
         public int containsWithoutPosition = 0;
-        private Board board = Board.GetBoard();
+        public Board board = Board.GetBoard();
         private ColorSlot[] code = new ColorSlot[Board.CODE_LENGTH];
         private static Game? game;
         private Game() {
